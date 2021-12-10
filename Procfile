@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath myProject1 satoriBack.wsgi
+web: gunicorn --pythonpath backend satoriBack.wsgi
