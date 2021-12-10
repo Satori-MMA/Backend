@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath myProject1 satoriBack.wsgi
