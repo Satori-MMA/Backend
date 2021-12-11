@@ -6,8 +6,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['backend-authql.herokuapp.com',
-'http://localhost:8080/', 'http://localhost:3000/','prueba-react-app.herokuapp.com']
+ALLOWED_HOSTS = ['apiback.herokuapp.com',
+'http://localhost:8080/', 'http://localhost:3000/','roninsatori.herokuapp.com']
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
