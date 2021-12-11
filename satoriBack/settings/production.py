@@ -6,7 +6,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['apiback.herokuapp.com',
+ALLOWED_HOSTS = ['apisatori.herokuapp.com',
 'http://localhost:8080/', 'http://localhost:3000/','roninsatori.herokuapp.com']
 
 # Database
