@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 
 # Create your models here.
@@ -47,7 +46,7 @@ class ExtendUser(AbstractUser):
     is_staff = models.BooleanField(_('Es personal'),default=False)
     created_at = models.DateTimeField(_('Fecha registro'),auto_now_add=True)
     updated_at = models.DateTimeField(_('Fecha actualización'),auto_now=True)
-
+ 
     username = None
 
     USERNAME_FIELD = 'email'
