@@ -6,7 +6,7 @@ from django.db.models import (
     ForeignKey
 )
 
-from users.models import ExtendUser
+from users.models import UserStori
 
 # Create your models here.
 
@@ -16,7 +16,7 @@ class Role(Model):
         TEACHER = "TEACHER", "Teacher"
 
     rol_name = CharField(
-        max_length=7,
+        max_length=8,
         choices=type_roles.choices,
         null=True,
         blank=True,
@@ -25,7 +25,7 @@ class Role(Model):
 
     #Relaciones
     user = ForeignKey(
-        ExtendUser,
+        UserStori,
         related_name='rol_user',
         on_delete=CASCADE,
         help_text='Rol_User',

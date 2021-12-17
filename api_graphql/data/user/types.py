@@ -1,11 +1,11 @@
 from graphene_django import DjangoObjectType
-from users.models import ExtendUser
+from users.models import UserStori
 from graphene import relay
 
 
 class UsersNode(DjangoObjectType):
     class Meta:
-        model = ExtendUser
+        model = UserStori
         fields = '__all__'
         #filter_fields = ['name','is_active',]
         filter_fields = {

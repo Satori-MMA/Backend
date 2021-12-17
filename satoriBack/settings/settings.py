@@ -122,7 +122,7 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'users.ExtendUser'
+AUTH_USER_MODEL = 'users.UserStori'
 
 GRAPHENE = {
     'SCHEMA': 'satoriBack.schema.schema',
@@ -142,9 +142,9 @@ GRAPHQL_AUTH = {
     'ALLOW_LOGIN_NOT_VERIFIED': False,
     #En true permite registro sin contraseña
     'ALLOW_PASSWORDLESS_REGISTRATION':False,
-    'UPDATE_MUTATION_FIELDS': ['first_name', 'last_name','email','is_staff'],
+    'UPDATE_MUTATION_FIELDS': ['first_name', 'last_name','email','is_staff',"user_phone","user_address"],
     'REGISTER_MUTATION_FIELDS':['first_name','last_name','email'],
-    'REGISTER_MUTATION_FIELDS_OPTIONAL': ['is_superuser'],
+    'REGISTER_MUTATION_FIELDS_OPTIONAL': ['is_superuser',"user_phone","user_address"],
     'USER_NODE_FILTER_FIELDS': {
                 "email": ["exact",],
                 "is_active": ["exact"],
