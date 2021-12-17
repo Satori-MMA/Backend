@@ -1,12 +1,18 @@
+from graphene.relay.node import Node
 from graphql_auth import mutations
+
 from .data.user.types import UsersNode
 from graphene import relay, ObjectType, Schema, Field
 from graphene_django.filter import DjangoFilterConnectionField
-from .data.user.mutations import UpdateUsers
+from .data.user.mutations import RegisterCustom, UpdateUsers
 import graphql_jwt
 from graphql_jwt.decorators import login_required
-from users.models import ExtendUser
+from users.models import UserStori
 from graphql_auth.schema import UserQuery, MeQuery
+
+#Roles
+from .data.role.types import RoleNode
+from .data.role.mutations import CreateRole, UpdateRole
 
 class Query(UserQuery, MeQuery,ObjectType):
     #Consulas a la app Users
@@ -15,10 +21,13 @@ class Query(UserQuery, MeQuery,ObjectType):
     user = relay.Node.Field(UsersNode)
     @login_required
     def resolve_allUsers(self, info, **kwargs):
-        return ExtendUser.objects.all()
+        return UserStori.objects.all()
         #return Users.objects.filter(kwargs)
+    
+    #Roles
+    role = relay.Node.Field(RoleNode)
+    all_Roles = DjangoFilterConnectionField(RoleNode)
 class AuthMutation(ObjectType):
-    user_register  = mutations.Register.Field()
     verify_account = mutations.VerifyAccount.Field()
     token_auth = mutations.ObtainJSONWebToken.Field()
     update_account = mutations.UpdateAccount.Field()
@@ -38,3 +47,6 @@ class AuthMutation(ObjectType):
 
 class Mutation(AuthMutation,ObjectType):
     user_update = UpdateUsers.Field()
+    role_update = UpdateRole.Field()
+    role_create = CreateRole.Field()
+    register_m = RegisterCustom.Field()

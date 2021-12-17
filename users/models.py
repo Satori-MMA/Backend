@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 
 # Create your models here.
@@ -36,7 +35,7 @@ class User(BaseUserManager):
 
         return self._create_user(email, password, **extra_fields)
 
-class ExtendUser(AbstractUser):
+class UserStori(AbstractUser):
     """User model."""
     first_name = models.CharField(_('Nombre'), max_length=150,blank=False)
     last_name = models.CharField(_('Apellido'), max_length=150,blank=False)
@@ -47,7 +46,9 @@ class ExtendUser(AbstractUser):
     is_staff = models.BooleanField(_('Es personal'),default=False)
     created_at = models.DateTimeField(_('Fecha registro'),auto_now_add=True)
     updated_at = models.DateTimeField(_('Fecha actualización'),auto_now=True)
-
+    user_phone = models.CharField(_('Telefono'),max_length=15,blank=True)
+    user_address = models.CharField(_('Direccion'),max_length=50,blank=True)
+ 
     username = None
 
     USERNAME_FIELD = 'email'

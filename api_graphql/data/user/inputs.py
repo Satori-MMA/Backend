@@ -17,4 +17,3 @@ class UpdateUsersInput(InputObjectType):
     is_superuser = Boolean(required=False)
     is_staff = Boolean(required=False)
     is_active = Boolean(required=False)
-    
