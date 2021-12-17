@@ -46,7 +46,6 @@ class AuthMutation(ObjectType):
     delete_account = mutations.DeleteAccount.Field()
 
 class Mutation(AuthMutation,ObjectType):
-    user_update = UpdateUsers.Field()
     role_update = UpdateRole.Field()
     role_create = CreateRole.Field()
-    register_m = RegisterCustom.Field()
+    user_register = RegisterCustom.Field()
