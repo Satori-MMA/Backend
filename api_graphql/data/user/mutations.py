@@ -29,6 +29,7 @@ class RegisterCustom(mutations.Register):
 
     @classmethod
     def mutate(self, *args, **kwargs):
+        res = super().mutate(*args, **kwargs)
         email = kwargs.get("email")
         user = UserStori.objects.filter(email=email).first()
         return RegisterCustom(user=user)
