@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'api_graphql',
     "graphql_auth",
     'corsheaders',
-    'roles.apps.RolesConfig'
+    'roles.apps.RolesConfig',
+    'courses.apps.CoursesConfig'
+
     # refresh tokens are optional
     #'graphql_jwt.refresh_token.apps.RefreshTokenConfig'
 ]
