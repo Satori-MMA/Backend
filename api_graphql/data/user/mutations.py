@@ -29,7 +29,14 @@ class RegisterCustom(mutations.Register):
 
     @classmethod
     def mutate(self, *args, **kwargs):
-        res = super().mutate(*args, **kwargs)
-        email = kwargs.get("email")
-        user = UserStori.objects.filter(email=email).first()
-        return RegisterCustom(user=user)
+        try: 
+            res = super().mutate(*args, **kwargs)
+            email = kwargs.get("email")
+            user = UserStori.objects.filter(email=email).first()
+            return RegisterCustom(
+                success=res.success,
+                errors=res.errors,
+                user=user,
+            )
+        except Exception:
+            raise Exception(res.errors)
