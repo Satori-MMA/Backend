@@ -8,12 +8,27 @@ from .data.user.mutations import RegisterCustom, UpdateUsers
 import graphql_jwt
 from graphql_jwt.decorators import login_required
 from users.models import UserStori
-from graphql_auth.schema import UserQuery, MeQuery
-
-#Roles
+from graphql_auth.schema import (
+    UserQuery, 
+    MeQuery
+)
 from .data.role.types import RoleNode
-from .data.role.mutations import CreateRole, UpdateRole
+from .data.course.types import CourseNode
+from .data.payment.types import PaymentNode
+from .data.role.mutations import (
+    CreateRole, 
+    UpdateRole
+)
 
+from .data.course.mutations import(
+    CreateCourse,
+    UpdateCourse
+)
+
+from .data.payment.mutations  import(
+    CreatePayment,
+    UpdatePayment
+)
 class Query(UserQuery, MeQuery,ObjectType):
     #Consulas a la app Users
     allUsers = DjangoFilterConnectionField(UsersNode)
@@ -27,6 +42,15 @@ class Query(UserQuery, MeQuery,ObjectType):
     #Roles
     role = relay.Node.Field(RoleNode)
     all_Roles = DjangoFilterConnectionField(RoleNode)
+
+    #Course
+    course = relay.Node.Field(CourseNode)
+    all_Courses = DjangoFilterConnectionField(CourseNode)
+
+    #Payment
+    payment = relay.Node.Field(PaymentNode)
+    all_Payments = DjangoFilterConnectionField(PaymentNode)
+
 class AuthMutation(ObjectType):
     verify_account = mutations.VerifyAccount.Field()
     token_auth = mutations.ObtainJSONWebToken.Field()
@@ -46,6 +70,15 @@ class AuthMutation(ObjectType):
     delete_account = mutations.DeleteAccount.Field()
 
 class Mutation(AuthMutation,ObjectType):
+    #Role
     role_update = UpdateRole.Field()
     role_create = CreateRole.Field()
     user_register = RegisterCustom.Field()
+
+    #Course
+    course_register = CreateCourse.Field()
+    course_update = UpdateCourse.Field()
+
+    #Payment
+    payment_register = CreatePayment.Field();
+    payment_update = UpdatePayment.Field();
