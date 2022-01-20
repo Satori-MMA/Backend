@@ -139,6 +139,9 @@ AUTHENTICATION_BACKENDS = [
     
 ]
 GRAPHQL_AUTH = {
+    "EMAIL_TEMPLATE_VARIABLES": {
+        "current_domain": "apisatori.herokuapp.com"
+    },
     'LOGIN_ALLOWED_FIELDS': ['email'],
     #No permite loguear si no esta verificado
     'ALLOW_LOGIN_NOT_VERIFIED': False,

@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
+from users.views import activate
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('api_graphql.urls'),name='api')
+    path('',include('api_graphql.urls'),name='api'),
+    path('activate/<token>',activate, name='activate'),
 ]
