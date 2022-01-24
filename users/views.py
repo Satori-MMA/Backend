@@ -3,9 +3,6 @@ from django.shortcuts import redirect
 
 from graphql_auth.models import UserStatus
 
-
-
-
 def activate(request,token):
     try:
         UserStatus.verify(token)  
