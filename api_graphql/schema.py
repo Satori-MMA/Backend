@@ -52,7 +52,6 @@ class Query(UserQuery, MeQuery,ObjectType):
     all_Payments = DjangoFilterConnectionField(PaymentNode)
 
 class AuthMutation(ObjectType):
-    verify_account = mutations.VerifyAccount.Field()
     token_auth = mutations.ObtainJSONWebToken.Field()
     update_account = mutations.UpdateAccount.Field()
     resend_activation_email = mutations.ResendActivationEmail.Field()
@@ -64,6 +63,7 @@ class AuthMutation(ObjectType):
 
     #Cuando se olvido de la contraseña
     password_reset = mutations.PasswordReset.Field()
+
     #Cuando sabe la contraseña antigua
     password_change = mutations.PasswordChange.Field()
     archive_account = mutations.ArchiveAccount.Field()

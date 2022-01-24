@@ -5,12 +5,12 @@
                 padding: 4em 1em ;
                 width: calc(30%);
                 height: calc(15%);">
-        <h3 style="font-family: Cursive,Fantasy;">Backend Auth</h3>
+        <h3 style="font-family: Cursive,Fantasy;">{{ site_name }}</h3>
         <p>Hola <strong style="font-family: Cursive,Fantasy;">{{ user.first_name }}!</strong></p>
         <p>Por favor activa tu cuenta:</p>
-        <a href={{ protocol }}://{{ frontend_domain }}/{{ path }}/{{ token }}
+        <a href={{ protocol }}://{{ current_domain }}/{{ path }}/{{ token }}
             style="text-decoration: none;
-                background-color: #0781e6;
+                background-color: #ba181b;
                 border-radius: 1em;
                 padding: 15px 32px;
                 font-size: 16px;" >

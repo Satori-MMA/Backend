@@ -36,3 +36,23 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = 'Delivery123'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
+
+
+GRAPHQL_AUTH = {
+    "EMAIL_TEMPLATE_VARIABLES": {
+        "current_domain": "localhost:8000"
+    },
+    'LOGIN_ALLOWED_FIELDS': ['email'],
+    #No permite loguear si no esta verificado
+    'ALLOW_LOGIN_NOT_VERIFIED': False,
+    #En true permite registro sin contraseña
+    'ALLOW_PASSWORDLESS_REGISTRATION':False,
+    'UPDATE_MUTATION_FIELDS': ['first_name', 'last_name','email','is_staff',"user_phone","user_address"],
+    'REGISTER_MUTATION_FIELDS':['first_name','last_name','email'],
+    'REGISTER_MUTATION_FIELDS_OPTIONAL': ['is_superuser',"user_phone","user_address"],
+    'USER_NODE_FILTER_FIELDS': {
+                "email": ["exact",],
+                "is_active": ["exact"],
+    }
+    # ...
+}
