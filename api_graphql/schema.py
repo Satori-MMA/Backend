@@ -15,6 +15,8 @@ from graphql_auth.schema import (
 from .data.role.types import RoleNode
 from .data.course.types import CourseNode
 from .data.payment.types import PaymentNode
+from .data.category.types import CategoryNode
+
 from .data.role.mutations import (
     CreateRole, 
     UpdateRole
@@ -28,6 +30,11 @@ from .data.course.mutations import(
 from .data.payment.mutations  import(
     CreatePayment,
     UpdatePayment
+)
+
+from .data.category.mutations import(
+    CreateCategory,
+    UpdateCategory
 )
 class Query(UserQuery, MeQuery,ObjectType):
     #Consulas a la app Users
@@ -50,6 +57,10 @@ class Query(UserQuery, MeQuery,ObjectType):
     #Payment
     payment = relay.Node.Field(PaymentNode)
     all_Payments = DjangoFilterConnectionField(PaymentNode)
+
+    #Category
+    category = relay.Node.Field(CategoryNode)
+    all_Categories = DjangoFilterConnectionField(CategoryNode)
 
 class AuthMutation(ObjectType):
     token_auth = mutations.ObtainJSONWebToken.Field()
@@ -82,3 +93,7 @@ class Mutation(AuthMutation,ObjectType):
     #Payment
     payment_register = CreatePayment.Field();
     payment_update = UpdatePayment.Field();
+
+    #Category
+    category_register = CreateCategory.Field();
+    category_update = UpdateCategory.Field();
