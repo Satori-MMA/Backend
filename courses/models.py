@@ -14,7 +14,8 @@ class Course(Model):
     coTitle = models.CharField(_('Title'), max_length=255,blank=False)
     coDescription = models.CharField(_('Description'), max_length=255,blank=False)
     coImage = models.CharField(_('Image'),max_length=255,blank=False)
-    coPrice = models.CharField(_('Price'),max_length=255,blank=False)
+    coPrice = models.FloatField(_('Price'),blank=False)
+    is_active = models.BooleanField(_('Activo'), default=True)
     members = models.ManyToManyField(UserStori, through='Payment')
 
     #Relaciones

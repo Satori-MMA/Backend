@@ -1,6 +1,6 @@
 from graphene import InputObjectType
 from graphene.types.scalars import ID
-from graphene.types.scalars import String, Int
+from graphene.types.scalars import String, Float, Boolean
 # Create your inputs types here.
 
 
@@ -13,7 +13,7 @@ class CreateCourseInput(InputObjectType):
     coTitle = String(Required = True)
     coDescription = String(Required = True)
     coImage = String(Required = True)
-    coPrice = Int(Required = True)
+    coPrice = Float(Required = True)
 
     #Relaciones
     category_id = ID(Required = True)
@@ -28,6 +28,7 @@ class UpdateCourseInput(InputObjectType):
     coDescription = String()
     coImage = String()
     coPrice = String()
+    is_active = Boolean()
 
     #Relaciones
     category_id = ID()
