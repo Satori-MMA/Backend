@@ -10,6 +10,7 @@ from django.utils.translation import gettext_lazy as _
 
 class Category(Model): 
     catName = CharField(
+        _('Nombre'),
         max_length=255,
         null=True,
         blank=False,
@@ -18,8 +19,8 @@ class Category(Model):
     )
 
     class Meta:
-        verbose_name = _('Category')
-        verbose_name_plural = _('Categories')
+        verbose_name = _('Categoria')
+        verbose_name_plural = _('Categorias')
 
 
     def __str__(self) -> str:
