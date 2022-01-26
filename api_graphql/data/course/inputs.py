@@ -15,6 +15,9 @@ class CreateCourseInput(InputObjectType):
     coImage = String(Required = True)
     coPrice = Int(Required = True)
 
+    #Relaciones
+    category_id = ID(Required = True)
+
 class UpdateCourseInput(InputObjectType):
     """
     Clase que encapsula los datos necesarios
@@ -25,3 +28,6 @@ class UpdateCourseInput(InputObjectType):
     coDescription = String()
     coImage = String()
     coPrice = String()
+
+    #Relaciones
+    category_id = ID()
