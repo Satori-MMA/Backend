@@ -32,7 +32,8 @@ EMAIL_PORT = 587
 
 GRAPHQL_AUTH = {
     "EMAIL_TEMPLATE_VARIABLES": {
-        "current_domain": "apisatori.herokuapp.com"
+        "current_domain": "apisatori.herokuapp.com",
+        "frontend_domain": "roninsatori.herokuapp.com"
     },
     'LOGIN_ALLOWED_FIELDS': ['email'],
     #No permite loguear si no esta verificado
