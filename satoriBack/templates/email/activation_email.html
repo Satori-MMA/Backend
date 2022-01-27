@@ -6,7 +6,7 @@
                 color: white;
                 width: calc(30%);
                 height: calc(15%);">
-        <h3 style="font-family: Cursive,Fantasy;">{{ site_name }}</h3>
+        <h3 style="font-family: Cursive,Fantasy; display: none;">{{ site_name }}</h3>
         <p>Hola <strong style="font-family: Cursive,Fantasy;">{{ user.first_name }}!</strong></p>
         <p>Por favor activa tu cuenta:</p>
         <a href={{ protocol }}://{{ current_domain }}/{{ path }}/{{ token }}

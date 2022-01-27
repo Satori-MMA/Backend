@@ -40,7 +40,8 @@ EMAIL_PORT = 587
 
 GRAPHQL_AUTH = {
     "EMAIL_TEMPLATE_VARIABLES": {
-        "current_domain": "localhost:8000"
+        "current_domain": "localhost:8000",
+        "frontend_domain": "localhost:3000"
     },
     'LOGIN_ALLOWED_FIELDS': ['email'],
     #No permite loguear si no esta verificado
