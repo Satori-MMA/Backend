@@ -36,6 +36,10 @@ from .data.category.mutations import(
     CreateCategory,
     UpdateCategory
 )
+
+from .data.contact.mutations import(
+    CreateContact
+)
 class Query(UserQuery, MeQuery,ObjectType):
     #Consulas a la app Users
     allUsers = DjangoFilterConnectionField(UsersNode)
@@ -97,3 +101,6 @@ class Mutation(AuthMutation,ObjectType):
     #Category
     category_register = CreateCategory.Field();
     category_update = UpdateCategory.Field();
+
+    #Contact
+    opinion_register = CreateContact.Field();
