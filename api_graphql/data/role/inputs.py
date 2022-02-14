@@ -22,5 +22,5 @@ class UpdateRoleInput(InputObjectType):
     id = ID(requiered=True)
     rol_name = String()
 
-    #Relacion
+    #Relación
     user_id = ID()
