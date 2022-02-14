@@ -12,7 +12,7 @@ from users.models import UserStori
 class Course(Model):
     """Cousers model."""
     coTitle = models.CharField(_('Titulo'), max_length=255,blank=False)
-    coDescription = models.CharField(_('Descripcion'), max_length=255,blank=False)
+    coDescription = models.CharField(_('Descripción'), max_length=255,blank=False)
     coImage = models.CharField(_('Imagen'),max_length=255,blank=False)
     coPrice = models.FloatField(_('Precio'),blank=False)
     is_active = models.BooleanField(_('Activo'), default=True)

@@ -1,7 +1,7 @@
 from decimal import Decimal
 from graphene import InputObjectType
 from graphene.types.scalars import ID
-from graphene import String, Float
+from graphene import String, Float, Boolean
 # Create your inputs types here.
 
 class CreateLessonInput(InputObjectType):
@@ -26,6 +26,7 @@ class UpdateLessonInput(InputObjectType):
     leDescription =String()
     leEvaluation = Float()
     leLinkVideo = String()
+    is_active = Boolean()
 
     #Relación
     course_id = ID()
