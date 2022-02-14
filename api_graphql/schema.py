@@ -16,6 +16,7 @@ from .data.role.types import RoleNode
 from .data.course.types import CourseNode
 from .data.payment.types import PaymentNode
 from .data.category.types import CategoryNode
+from .data.lesson.types import LessonNode
 
 from .data.role.mutations import (
     CreateRole, 
@@ -39,6 +40,11 @@ from .data.category.mutations import(
 
 from .data.contact.mutations import(
     CreateContact
+)
+
+from .data.lesson.mutations import(
+    CreateLesson,
+    UpdateLesson
 )
 class Query(UserQuery, MeQuery,ObjectType):
     #Consulas a la app Users
@@ -65,6 +71,10 @@ class Query(UserQuery, MeQuery,ObjectType):
     #Category
     category = relay.Node.Field(CategoryNode)
     all_Categories = DjangoFilterConnectionField(CategoryNode)
+
+    #Lesson
+    lesson = relay.Node.Field(LessonNode)
+    all_lessons = DjangoFilterConnectionField(LessonNode)
 
 class AuthMutation(ObjectType):
     token_auth = mutations.ObtainJSONWebToken.Field()
@@ -104,3 +114,7 @@ class Mutation(AuthMutation,ObjectType):
 
     #Contact
     opinion_register = CreateContact.Field();
+
+    #Lesson
+    lesson_register = CreateLesson.Field();
+    lesson_update = UpdateLesson.Field();
