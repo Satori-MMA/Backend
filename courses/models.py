@@ -15,6 +15,7 @@ class Course(Model):
     coDescription = models.CharField(_('Descripción'), max_length=255,blank=False)
     coImage = models.CharField(_('Imagen'),max_length=255,blank=False)
     coPrice = models.FloatField(_('Precio'),blank=False)
+    coInstructor = models.CharField(_('Instructor'), max_length=255, blank=False, default="")
     is_active = models.BooleanField(_('Activo'), default=True)
     members = models.ManyToManyField(UserStori, through='Payment')
 
@@ -44,7 +45,7 @@ class Payment(Model):
         verbose_name= _('Curso'),
         on_delete=DO_NOTHING,
     )
-    paDate = models.DateField(_('Fecha'),blank=False)
+    paDate = models.DateField(_('Fecha de Pago'),blank=False)
 
     class Meta:
         verbose_name = _('Pago')
