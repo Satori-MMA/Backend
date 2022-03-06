@@ -27,7 +27,7 @@ class MonthlyPayment(Model):
     )
     class Meta:
         verbose_name = _('Mensualidad')
-        verbose_name = _('Mensualidades')
+        verbose_name_plural = _('Mensualidades')
     
     def __str__(self):
         return self.moType
