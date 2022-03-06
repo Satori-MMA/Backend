@@ -9,6 +9,7 @@ class CourseNode(DjangoObjectType):
         fields = '__all__'
         filter_fields = {
             'coTitle': ['exact', 'icontains', 'istartswith'],
-            'coPrice': ['exact', 'icontains', 'istartswith']
+            'coPrice': ['exact', 'icontains', 'istartswith'],
+            'coInstructor': ['exact', 'icontains', 'istartswith']
         }
         interfaces = (relay.Node,)

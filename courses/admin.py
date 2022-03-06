@@ -9,6 +9,9 @@ class coursesAdmin(admin.ModelAdmin):
     search_fields=('coTitle',)
 @admin.register(Payment)
 class paymentAdmin(admin.ModelAdmin):
-    list_display=('paDate',)
+    list_display=('course', 'paDate', 'Estudiante')
     list_filter=('paDate',)
     search_fields=('paDate',)
+
+    def Estudiante(self, obj):
+        return str(obj.user.first_name) + " " + str(obj.user.last_name)

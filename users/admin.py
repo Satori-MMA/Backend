@@ -30,7 +30,7 @@ class UsersAdmin(DjangoUserAdmin):
         }),
     )
     #Lista en el menu
-    list_display = ('email', 'last_name','is_active')
+    list_display = ('email', 'first_name','is_active')
     list_filter = ('is_active',)
     #fields = ('first_name','last_name','email','password','is_superuser','is_staff','is_active')
     #exclude = ('is_active',)

@@ -14,6 +14,7 @@ class CreateCourseInput(InputObjectType):
     coDescription = String(Required = True)
     coImage = String(Required = True)
     coPrice = Float(Required = True)
+    coInstructor = String(Required = True)
 
     #Relaciones
     category_id = ID(Required = True)
@@ -28,6 +29,7 @@ class UpdateCourseInput(InputObjectType):
     coDescription = String()
     coImage = String()
     coPrice = String()
+    coInstructor = String()
     is_active = Boolean()
 
     #Relaciones
