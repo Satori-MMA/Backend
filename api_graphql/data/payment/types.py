@@ -8,6 +8,8 @@ class PaymentNode(DjangoObjectType):
         model = Payment
         fields = '__all__'
         filter_fields = {
-            'paDate': ['exact', 'icontains', 'istartswith']
+            'paDate': ['exact', 'icontains', 'istartswith'],
+            'user_id': ['exact'],
+            'course_id': ['exact']
         }
         interfaces = (relay.Node,)

@@ -16,7 +16,7 @@ class CreatePaymentInput(InputObjectType):
 class UpdatePaymentInput(InputObjectType):
     """
     Clase que encapsula los datos necesarios
-    para actualizar un rol
+    para actualizar un pago
     """
     id = ID(requiered=True)
     paDate = Date()

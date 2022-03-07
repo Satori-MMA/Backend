@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'contacts.apps.ContactsConfig',
     'lessons.apps.LessonsConfig',
     'monthly_payments.apps.MonthlyPaymentsConfig',
+    'reviews.apps.ReviewsConfig',
 
     # refresh tokens are optional
     #'graphql_jwt.refresh_token.apps.RefreshTokenConfig'

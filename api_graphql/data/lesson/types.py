@@ -8,6 +8,7 @@ class LessonNode(DjangoObjectType):
         model = Lesson
         fields = '__all__'
         filter_fields = {
-            'leName': ['exact', 'icontains', 'istartswith']
+            'leName': ['exact', 'icontains', 'istartswith'],
+            'course_id': ['exact']
         }
         interfaces = (relay.Node,)
