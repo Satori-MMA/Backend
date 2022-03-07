@@ -10,6 +10,7 @@ class MonthlyPaymentNode(DjangoObjectType):
         filter_fields = {
             'moStartDate': ['exact'],
             'moFinishDate': ['exact'],
-            'moType': ['exact', 'icontains', 'istartswith']
+            'moType': ['exact', 'icontains', 'istartswith'],
+            'user_id': ['exact']
         }
         interfaces = (relay.Node,)

@@ -18,6 +18,7 @@ from .data.payment.types import PaymentNode
 from .data.category.types import CategoryNode
 from .data.lesson.types import LessonNode
 from .data.monthlypayment.types import MonthlyPaymentNode
+from .data.review.types import ReviewNode
 
 from .data.role.mutations import (
     CreateRole, 
@@ -52,6 +53,12 @@ from .data.monthlypayment.mutations import(
     CreateMonthlyPayment,
     UpdateMonthlyPayment
 )
+
+from .data.review.mutations import(
+    CreateReview,
+    UpdateReview
+)
+
 class Query(UserQuery, MeQuery,ObjectType):
     #Consulas a la app Users
     allUsers = DjangoFilterConnectionField(UsersNode)
@@ -84,7 +91,11 @@ class Query(UserQuery, MeQuery,ObjectType):
 
     #MonthlyPayment
     monthlypayment = relay.node.Field(MonthlyPaymentNode)
-    all_monthlypayment = DjangoFilterConnectionField(MonthlyPaymentNode)
+    all_monthlypayments = DjangoFilterConnectionField(MonthlyPaymentNode)
+
+    #Review
+    review = relay.node.Field(ReviewNode)
+    all_reviews = DjangoFilterConnectionField(ReviewNode)
 class AuthMutation(ObjectType):
     token_auth = mutations.ObtainJSONWebToken.Field()
     update_account = mutations.UpdateAccount.Field()
@@ -131,3 +142,7 @@ class Mutation(AuthMutation,ObjectType):
     #MonthlyPayment
     monthlypayment_register = CreateMonthlyPayment.Field();
     monthlypayment_update = UpdateMonthlyPayment.Field();
+
+    #Review
+    review_register = CreateReview.Field();
+    review_update = UpdateReview.Field();
