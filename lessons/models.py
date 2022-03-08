@@ -4,9 +4,10 @@ from django.db.models import (
     Model,
     ForeignKey
 )
-
+from django.db.models.deletion import DO_NOTHING
 from django.utils.translation import gettext_lazy as _
 from courses.models import Course
+from users.models import UserStori
 class Lesson(Model):
     """ Lesson Model"""
     leName = models.CharField(_('Nombre'), max_length=255,blank=False)
@@ -30,3 +31,18 @@ class Lesson(Model):
 
     def __str__(self):
         return self.leName
+class lessonUser(Model):
+    user = ForeignKey(
+        UserStori,
+        verbose_name= _('Usuario'),
+        on_delete=DO_NOTHING,
+    )
+    lesson = ForeignKey(
+        Lesson,
+        verbose_name= _('Lección'),
+        on_delete=DO_NOTHING,
+    )
+    taCheck = models.BooleanField(_('Lección vista'),blank=False)
+    class Meta:
+        verbose_name = _('Lección de usuario')
+        verbose_name_plural = _('Lecciones de usuario')

@@ -15,6 +15,7 @@ class CreateReviewInput(InputObjectType):
     
     #Relaciones
     lesson_id = ID(Required=True)
+    user_id = ID()
 
 class UpdateReviewInput(InputObjectType):
     """
@@ -27,3 +28,4 @@ class UpdateReviewInput(InputObjectType):
     
     #Relación
     lesson_id = ID()
+    user_id = ID()

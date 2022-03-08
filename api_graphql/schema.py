@@ -59,6 +59,11 @@ from .data.review.mutations import(
     UpdateReview
 )
 
+from .data.lessonUser.mutations import(
+    CreateLessonUser,
+    UpdateLessonUser
+)
+
 class Query(UserQuery, MeQuery,ObjectType):
     #Consulas a la app Users
     allUsers = DjangoFilterConnectionField(UsersNode)
@@ -146,3 +151,7 @@ class Mutation(AuthMutation,ObjectType):
     #Review
     review_register = CreateReview.Field();
     review_update = UpdateReview.Field();
+
+    #LessonUser
+    lessonUser_register = CreateLessonUser.Field()
+    lessonUser_update = UpdateLessonUser.Field()
