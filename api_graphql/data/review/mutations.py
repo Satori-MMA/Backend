@@ -1,7 +1,9 @@
+from ast import If
 from graphene import Field, Mutation
 from api_graphql.data.review.inputs import CreateReviewInput,UpdateReviewInput
 
 from reviews.models import Review
+from roles.models import Role
 from .types import ReviewNode
 from api_graphql.utils import delete_attributes_none
 from api_graphql.utils import transform_global_ids
@@ -15,10 +17,15 @@ class CreateReview(Mutation):
         
     #@login_required
     def mutate(self, info, input):
-        input = delete_attributes_none(**vars(input))
-        input = transform_global_ids(**input)
-        review = Review.objects.create(**input)
-        return CreateReview(review=review)
+        try:
+            input = delete_attributes_none(**vars(input))
+            input = transform_global_ids(**input)
+            user = Role.objects.get(user_id=input.get('user_id'))
+            if(user.rol_name == 'STUDENT'):
+                review = Review.objects.create(**input)
+                return CreateReview(review=review)
+        except:
+            return CreateReview(review=review)
 
 class UpdateReview(Mutation):
     """Clase para actualizar """

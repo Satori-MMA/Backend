@@ -5,6 +5,7 @@ from django.db.models import (
     Model,
     ForeignKey
 )
+from users.models import UserStori
 from lessons.models import Lesson
 from .choices import QUALIFICATION
 from django.utils.translation import gettext_lazy as _
@@ -15,13 +16,21 @@ class Review(Model):
     opQualification = models.CharField(_('Calificación de la lección'), max_length=255, choices=QUALIFICATION)
 
      #Relaciones
-    lesson = ForeignKey(
-        Lesson,
-        verbose_name= _('lesson'),
-        related_name='lessons',
+    user = ForeignKey(
+        UserStori,
+        verbose_name= _('Usuario'),
+        related_name='Usuarios',
         on_delete=CASCADE,
         default="",
         help_text=_('Estudiante')
+    )
+    lesson = ForeignKey(
+        Lesson,
+        verbose_name= _('Leccion'),
+        related_name='Lecciones',
+        on_delete=CASCADE,
+        default="",
+        help_text=_('Leccion')
     )
 
     class Meta:
