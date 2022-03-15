@@ -8,6 +8,7 @@ from django.db.models.deletion import DO_NOTHING
 from django.utils.translation import gettext_lazy as _
 from categories.models import Category
 from users.models import UserStori
+from .choices import TYPE_DIFFICULTY
 
 class Course(Model):
     """Cousers model."""
@@ -16,6 +17,8 @@ class Course(Model):
     coImage = models.CharField(_('Imagen'),max_length=255,blank=False)
     coPrice = models.FloatField(_('Precio'),blank=False)
     coInstructor = models.CharField(_('Instructor'), max_length=255, blank=False, default="")
+    coCalendar = models.CharField(_('Cronograma'), max_length=255, blank=False, default="")
+    coDifficulty = models.CharField(_('Tipo de Dificultad'), max_length=45, choices=TYPE_DIFFICULTY)
     is_active = models.BooleanField(_('Activo'), default=True)
     members = models.ManyToManyField(UserStori, through='Payment')
 

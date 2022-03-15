@@ -8,12 +8,14 @@ from django.db.models.deletion import DO_NOTHING
 from django.utils.translation import gettext_lazy as _
 from courses.models import Course
 from users.models import UserStori
+from .choices import TYPE_DIFFICULTY
 class Lesson(Model):
     """ Lesson Model"""
     leName = models.CharField(_('Nombre'), max_length=255,blank=False)
     leDescription = models.CharField(_('Descripción'), max_length=255,blank=False)
     leEvaluation = models.FloatField(_('Evaluación'),blank=False)
     leLinkVideo = models.CharField(_('Link de video'), max_length=255,blank=False)
+    leDifficulty = models.CharField(_('Tipo de Dificultad'), max_length=45, choices=TYPE_DIFFICULTY, blank=False)
     is_active = models.BooleanField(_('Activo'), default=True)
 
     #Relaciones
