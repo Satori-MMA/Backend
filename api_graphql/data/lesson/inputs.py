@@ -12,6 +12,7 @@ class CreateLessonInput(InputObjectType):
     leDescription =String(Required = True)
     leEvaluation = Float(Required = True)
     leLinkVideo = String(Required = True)
+    leDifficulty = String(Required = True)
 
     #Relaciones
     course_id = ID(Required = True)
@@ -26,6 +27,7 @@ class UpdateLessonInput(InputObjectType):
     leDescription =String()
     leEvaluation = Float()
     leLinkVideo = String()
+    leDifficulty = String()
     is_active = Boolean()
 
     #Relación

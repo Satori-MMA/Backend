@@ -14,7 +14,7 @@ class MonthlyPayment(Model):
     """MonthlyPayments Model"""
     moStartDate = models.DateField(_('Fecha Inicio'),blank=False)
     moFinishDate = models.DateField(_('Fecha Fin'),blank=False)
-    moType = models.CharField(_('Tipo de Mensualidad'), max_length=255, choices=TYPE_MONTHLY_PAYMENT)
+    moType = models.CharField(_('Tipo de Mensualidad'), max_length=255, choices=TYPE_MONTHLY_PAYMENT, blank=False)
     moPrice = models.FloatField(_('Precio Mensualidad'),blank=False)
 
     #Relaciones
