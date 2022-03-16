@@ -17,15 +17,10 @@ class CreateReview(Mutation):
         
     #@login_required
     def mutate(self, info, input):
-        try:
-            input = delete_attributes_none(**vars(input))
-            input = transform_global_ids(**input)
-            user = Role.objects.get(user_id=input.get('user_id'))
-            if(user.rol_name == 'STUDENT'):
-                review = Review.objects.create(**input)
-                return CreateReview(review=review)
-        except:
-            return CreateReview(review=review)
+        input = delete_attributes_none(**vars(input))
+        input = transform_global_ids(**input)
+        review = Review.objects.create(**input)
+        return CreateReview(review=review)
 
 class UpdateReview(Mutation):
     """Clase para actualizar """
