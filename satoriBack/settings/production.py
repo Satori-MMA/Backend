@@ -6,7 +6,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['apisatori.herokuapp.com',
+ALLOWED_HOSTS = ['apisatori.herokuapp.com','apisatorimma.herokuapp.com',
 'http://localhost:8080/', 'http://localhost:3000/','roninsatori.herokuapp.com','satorimma.herokuapp.com']
 
 # Database
@@ -32,7 +32,7 @@ EMAIL_PORT = 587
 
 GRAPHQL_AUTH = {
     "EMAIL_TEMPLATE_VARIABLES": {
-        "current_domain": "apisatori.herokuapp.com",
+        "current_domain": "apisatorimma.herokuapp.com",
         "frontend_domain": "satorimma.herokuapp.com"
     },
     'LOGIN_ALLOWED_FIELDS': ['email'],
