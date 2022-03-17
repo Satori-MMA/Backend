@@ -6,6 +6,6 @@ from graphql_auth.models import UserStatus
 def activate(request,token):
     try:
         UserStatus.verify(token)  
-        return redirect('https://roninsatori.herokuapp.com/login')
+        return redirect('https://satorimma.herokuapp.com/login')
     except Exception:
         raise Exception()

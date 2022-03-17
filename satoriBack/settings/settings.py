@@ -59,8 +59,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-CORS_ALLOWED_ORIGINS = ["http://apisatori.herokuapp.com",
-"http://localhost:8080", "http://localhost:3000","https://roninsatori.herokuapp.com","http://localhost:8000"]
+CORS_ALLOWED_ORIGINS = ["http://apisatorimma.herokuapp.com",
+"http://localhost:8080", "http://localhost:3000","https://roninsatori.herokuapp.com","http://localhost:8000" ,'satorimm.herokuapp.com']
 
 CORS_ALLOW_CREDENTIALS = True
 

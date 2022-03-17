@@ -7,7 +7,7 @@ DEBUG = False
 
 
 ALLOWED_HOSTS = ['apisatori.herokuapp.com',
-'http://localhost:8080/', 'http://localhost:3000/','roninsatori.herokuapp.com']
+'http://localhost:8080/', 'http://localhost:3000/','roninsatori.herokuapp.com','satorimma.herokuapp.com']
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -33,7 +33,7 @@ EMAIL_PORT = 587
 GRAPHQL_AUTH = {
     "EMAIL_TEMPLATE_VARIABLES": {
         "current_domain": "apisatori.herokuapp.com",
-        "frontend_domain": "roninsatori.herokuapp.com"
+        "frontend_domain": "satorimma.herokuapp.com"
     },
     'LOGIN_ALLOWED_FIELDS': ['email'],
     #No permite loguear si no esta verificado
