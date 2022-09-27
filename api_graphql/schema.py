@@ -101,6 +101,7 @@ class Query(UserQuery, MeQuery,ObjectType):
     #Review
     review = relay.node.Field(ReviewNode)
     all_reviews = DjangoFilterConnectionField(ReviewNode)
+    
 class AuthMutation(ObjectType):
     token_auth = mutations.ObtainJSONWebToken.Field()
     update_account = mutations.UpdateAccount.Field()
